@@ -1,0 +1,154 @@
+:root {
+    --dark-blue: rgb(61, 83, 128);
+    --light-blue: rgb(72, 101, 156);
+    --bg-color: rgb(21, 28, 43);
+}
+
+body {
+    background-color: rgb(41, 54, 83);
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    z-index: -10;
+    position: relative;
+}
+
+.message p {
+    text-align: center;
+    padding-top: 10px;
+}
+
+header {
+    background-color: var(--light-blue);
+    margin: 0 auto;
+    padding: 5px;
+}
+
+header h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-left: 35px;
+}
+
+main {
+    z-index: -2;
+    position: relative;
+}
+
+aside {
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    z-index: 1;
+    top: 105px;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 35px;
+    background-color: var(--dark-blue);
+    z-index: -1;
+}
+
+a {
+    color: rgb(223, 255, 255);
+    font-size: 1.4rem;
+    line-height: 50px;
+}
+
+aside li {
+    list-style-type: none;
+}
+
+i {
+    margin-right: 4px;
+}
+
+footer {
+    background-color: var(--light-blue);
+    text-align: center;
+    color: white;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.add_btn {
+    border: 1px solid var(--dark-blue);
+    background-color: var(--light-blue);
+    font-size: 1.5rem;
+    color: white;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+section {
+    background-color: var(--dark-blue);
+    width: 55%;
+    margin: 40px auto 0 auto;
+    padding: 20px 60px;
+    color: white;
+}
+
+#add_title {
+    background-color: #222f3e;
+    border: 2px solid #161f29;
+    border-radius: 10px;
+    width: 50%;
+    height: 30px;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 1.3rem;
+}
+
+.submit {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: var(--light-blue);
+    color: white;
+    border: 2px solid var(--bg-color);
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: var(--bg-color);
+    transition: 0.3s;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: var(--light-blue);
+    border: 1px solid var(--bg-color);
+    padding: 5px;
+}
+
+td {
+    text-align: center;
+    border: 1px solid var(--bg-color);
+}
+
+.message {
+    background-color: white;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+button,
+.delete-btn {
+    background-color: var(--light-blue);
+    border: 1px solid var(--bg-color);
+    padding: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover,
+.delete-btn:hover {
+    background-color: var(--bg-color);
+    transition: 0.3s;
+}
