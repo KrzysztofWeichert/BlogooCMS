@@ -148,7 +148,20 @@ button,
 }
 
 button:hover,
-.delete-btn:hover {
+.delete-btn:hover,
+.pagination a:hover{
     background-color: var(--bg-color);
     transition: 0.3s;
+}
+
+.pagination{
+    text-align: center;
+}
+
+.pagination a{
+    background-color: var(--light-blue);
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+    border: 1px solid var(--bg-color);
 }

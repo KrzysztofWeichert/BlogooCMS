@@ -27,6 +27,7 @@ if (in_array($page, $cmsPages)) {
 } else {
     (new BlogController($request, $db_config))->run();
 }
-} catch(Error|Exception){
-    echo 'An error occured. Contact administrator or try again later';
+} catch(Error|Exception $e){
+    echo 'An error occured. Please contanct the administrator!';
+    dumper($e);
 }

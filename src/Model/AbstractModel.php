@@ -20,16 +20,6 @@ abstract class AbstractModel
         }
     }
 
-    public function login(?string $username, ?string $password)
-    {
-        $query = "SELECT * FROM admins WHERE username = ?";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_assoc();
-    }
-
     public function friendlyUrl($title)
     {
         $polishChars = [

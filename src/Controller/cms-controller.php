@@ -22,9 +22,13 @@ class CmsController extends AbstractController
                 $username = $this->request->postParam('username') ?? '';
                 $password = $this->request->postParam('password') ?? '';
                 if (!empty($_SESSION['logged']) || !empty($this->Model->login($username, $password))) {
+                    $articlesNumber = $this->Model->count();
+                    $pageNumber = $this->request->getParam('pagenumber') ?? 1;
                     $paramsList = [
+                        'articlesNumber' => $articlesNumber,
+                        'pagenumber' => $pageNumber, 
                         'info' => $this->request->getParam('info') ?? null,
-                        'articles' => $this->Model->selectAll()
+                        'articles' => $this->Model->selectAllCMS($pageNumber)
                     ];
                     (new View)->renderCMS($paramsList);
                     $_SESSION['logged'] = 'logged';
@@ -43,7 +47,7 @@ class CmsController extends AbstractController
                             'meta-title' => $this->request->postParam('meta-title') ?? null,
                             'meta-description' => $this->request->postParam('meta-description') ?? null
                         ];
-                        $this->Model->addArticle($articleData);
+                        $this->Model->add($articleData);
                         header('Location: /?page=cms&info=created');
                     }
                 } else
@@ -88,7 +92,7 @@ class CmsController extends AbstractController
                     (new View)->renderCMS($articleData, 'article-delete');
 
                     if ($this->request->postParam('confirm') === 'YES') {
-                        $this->Model->deleteArticle($articleData['id']);
+                        $this->Model->delete($articleData['id']);
                         header('Location: /?page=cms&info=deleted');
                     } elseif ($this->request->postParam('confirm') === 'NO')
                         header('Location: /?page=cms');
