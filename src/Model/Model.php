@@ -9,13 +9,14 @@ require_once('src/Model/AbstractModel.php');
 class Model extends AbstractModel
 {
     
-    public function login(?string $username, ?string $password)
+    public function login(?string $username)
     {
         $query = "SELECT * FROM admins WHERE username = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("s", $username);
         $stmt->execute();
         $result = $stmt->get_result();
+        $stmt->close();
         return $result->fetch_assoc();
     }
 
@@ -26,6 +27,7 @@ class Model extends AbstractModel
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("sssss", $data['title'], $data['description'], $url, $data['meta-title'], $data['meta-description']);
         $stmt->execute();
+        $stmt->close();
     }
 
     public function selectAll(): array {
@@ -53,6 +55,7 @@ class Model extends AbstractModel
         }
         $stmt->execute();
         $result = $stmt->get_result();
+        $stmt->close();
         return $result->fetch_assoc();
     }
 
@@ -69,6 +72,7 @@ class Model extends AbstractModel
             $stmt->bind_param("sssi", $data['description'], $data['metaTitle'], $data['metaDescription'], $data['id']);
         }
         $stmt->execute();
+        $stmt->close();
     }
 
     public function delete($id): void {
@@ -76,6 +80,7 @@ class Model extends AbstractModel
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("i", $id);
         $stmt->execute();
+        $stmt->close();
     }
 
     public function count(){
