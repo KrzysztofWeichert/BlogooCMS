@@ -2,11 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App;
+namespace App\Model;
+use App\Model\AbstractModel as ModelAbstractModel;
 
-require_once('src/Model/AbstractModel.php');
-
-class Model extends AbstractModel
+class Model extends ModelAbstractModel
 {
     
     public function login(?string $username)

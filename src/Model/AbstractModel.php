@@ -2,10 +2,8 @@
 
 declare(strict_types=1);
 
-namespace App;
+namespace App\Model;
 
-use Exception;
-use PDO;
 use Mysqli;
 
 abstract class AbstractModel

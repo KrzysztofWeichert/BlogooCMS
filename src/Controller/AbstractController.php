@@ -2,20 +2,19 @@
 
 declare(strict_types=1);
 
-namespace App;
-use Request;
+namespace App\Controller;
 
-require_once('src/functions.php');
-require_once('src/Model/Model.php');
+use App\Model\Model;
+use App\Request;
 
 abstract class AbstractController
 {
     protected Request $request;
-    protected Model $Model;
+    protected Model $model;
     public function __construct(Request $request, $db_config)
     {
         $this->request = $request;
-        $this->Model = new Model($db_config);
+        $this->model = new Model($db_config);
     }
 
     protected function action(): ?string

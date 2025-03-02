@@ -1,17 +1,17 @@
 <?php
 declare(strict_types=1);
+
 namespace App;
 
-use CMS\CmsController;
+use App\Controller\CmsController;
+use App\Controller\BlogController;
+use App\Request;
 use Error;
 use Exception;
-use Request;
-session_start();
 
-require_once('src/controller/blog-controller.php');
-require_once('src/controller/cms-controller.php');
-require_once('src/functions.php');
-require_once('src/model/Model.php');
+include 'src/functions.php';
+require_once realpath('vendor/autoload.php');
+session_start();
 
 $request = new Request($_GET, $_POST);
 
@@ -29,5 +29,4 @@ if (in_array($page, $cmsPages)) {
 }
 } catch(Error|Exception $e){
     echo 'An error occured. Please contanct the administrator!';
-    dumper($e);
 }
